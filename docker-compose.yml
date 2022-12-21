@@ -29,5 +29,5 @@ services:
 
 networks:
   default:
-    external:
-      name: mongo-network
+    name: mongo-network
+    external: true
