@@ -15,9 +15,12 @@ services:
       # Partage du port 27017
       - 27017:27017
     restart: always
+    networks:
+      - mongo-network
 
   mongo-express:
     image: mongo-express
+    container_name: mongo-express
     restart: always
     ports:
       - 8081:8081
@@ -25,9 +28,12 @@ services:
       ME_CONFIG_MONGODB_ADMINUSERNAME: ${ROOT_USERNAME}
       ME_CONFIG_MONGODB_ADMINPASSWORD: ${ROOT_PASSWORD}
       ME_CONFIG_MONGODB_URL: mongodb://${ROOT_USERNAME}:${ROOT_PASSWORD}@mongo:27017/
+    depends_on:
+      - mongo
+    networks:
+      - mongo-network
 
 
 networks:
-  default:
-    name: mongo-network
-    external: true
+  mongo-network:
+    driver: bridge
