@@ -28,6 +28,12 @@ Lancement du docker compose en prenant en compte le fichier .env
 
 ```bash
 bin/start
+
+Démarrage de tous les containers
+[+] Running 3/3
+ ⠿ Network mongo_mongo-network  Created                                                                                                   0.1s
+ ⠿ Container mongo              Started                                                                                                   2.1s
+ ⠿ Container mongo-express      Started                                                                                                   1.9s
 ```
 
 ## Arrêt des containers
@@ -42,15 +48,24 @@ bin/stop
 
 ```bash
 bin/shell
+```
 
-# ou
-docker run -it mongo:5.0 mongosh "mongo+srv://username:password@clusterURL/database"
+Pour le shell du container *mongo-express*
+
+```bash
+bin/shell mongo-express
 ```
 
 ## Afficher les logs du container
 
 ```bash
 bin/log
+```
+
+Pour les logs du container *mongo-express*
+
+```bash
+bin/log mongo-express
 ```
 
 ## Export mongo
