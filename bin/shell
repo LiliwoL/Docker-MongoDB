@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 if [ -z "$1" ]
   then
-    docker exec -it mongo /bin/sh
+    docker exec -it mongo mongosh "mongo+srv://username:password@clusterURL/database"
 else
     docker exec -it $@ /bin/sh
 fi

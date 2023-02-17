@@ -1,32 +1,67 @@
+# Sommaire
+
+[toc]
+
+v 0.1
+
+# Docker Mongo et Mongo Express
+
+Installe une stack mongo et mongo express
+
+> Mongo express
+https://github.com/mongo-express/mongo-express
+
+## Accès à mongo
+localhost:27017
+
+## Accès à Mongo Express
+http://localhost:8081
+
 Source:
 https://www.mongodb.com/compatibility/docker
 
-# Lancer le docker compose en prenant en compte le fichier .env
+# Commandes
+
+## Lancement des containers
+
+Lancement du docker compose en prenant en compte le fichier .env
 
 ```bash
-docker compose --env-file .env up -d
+bin/start
+```
+
+## Arrêt des containers
+
+Lancement du docker compose en prenant en compte le fichier .env
+
+```bash
+bin/stop
+```
+
+## Accéder au shell Mongo
+
+```bash
+bin/shell
 
 # ou
-
-bin/run.sh
-```
-
-
-# Accéder au shell Mongo
-
-```
 docker run -it mongo:5.0 mongosh "mongo+srv://username:password@clusterURL/database"
 ```
 
-# Export mongo
+## Afficher les logs du container
 
+```bash
+bin/log
 ```
+
+## Export mongo
+
+```bash
 docker run -it -v $(pwd):/tmp mongo:5.0 mongoexport --collection=COLLECTION --out=/tmp/COLLECTION.json "mongo+srv://username:password@clusterURL/database"
 ```
 
-# Import Mongo
+## Import Mongo
 
-```
+```bash
 docker run -it -v $(pwd):/tmp mongo:5.0 mongoimport --drop --collection=COLLECTION "mongodb+srv://user:password@clusterURL/database" /tmp/COLLECTION.json
 ```
 
@@ -52,6 +87,10 @@ db.createUser(
   }
 );
 ```
+
+# Sample data
+
+https://github.com/neelabalan/mongodb-sample-dataset
 
 ## Activation de mongo en mode auth
 
