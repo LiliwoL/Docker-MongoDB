@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+if [ -z "$1" ]
+  then
+    docker logs --follow mongo
+else
+    docker logs --follow $@
+fi

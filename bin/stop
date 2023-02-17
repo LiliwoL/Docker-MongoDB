@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+if [ -z "$1" ]
+  then
+		echo "Arrêt de tous les containers"
+		docker-compose down
+else
+	echo "Démarrage du container $@"
+    docker-compose down $@
+fi

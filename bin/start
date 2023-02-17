@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+if [ -z "$1" ]
+  then
+		echo "Démarrage de tous les containers"
+		docker-compose --env-file .env up -d
+else
+	echo "Démarrage du container $@"
+    docker-compose --env-file .env up $@ -d
+fi
