@@ -121,26 +121,3 @@ docker run -it -v $(pwd):/tmp mongo:5.0 mongoimport --drop --collection=COLLECTI
 # Mongo en mode AUTH
 
 Ce docker crée un utilisateur **root** à partir du fichier **.env** fourni.
-
-## Activation de mongo en mode auth
-
-Modification du docker-compose.yml en ajoutant:
-```
-services:
-   mongo:
-      container_name: mongodb
-      image: mongo
-      ports:
-       - "27017:27017"
-      volumes:
-       - mongodbdata:/data/db
-      command: [--auth]
-      restart: always
-volumes:
-   mongodbdata:
-
-networks:
-   default:
-      external:
-         name: mongo-network
-```
