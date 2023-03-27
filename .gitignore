@@ -4,3 +4,4 @@ mongodata/
 # Fichier de configuration
 .env
 .DS_Store
+.idea
