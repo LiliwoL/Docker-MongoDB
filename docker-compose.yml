@@ -11,10 +11,11 @@ services:
     volumes:
       # Répertoire hôte: mongodata => Répertoire Container: /data/db
       - ./mongodata:/data/db
+      - ./sample_datas:/root/sample_datas
     ports:
       # Partage du port 27017
       - 27017:27017
-    command: mongod
+    command: [--auth]
     restart: always
     networks:
       - mongo-network

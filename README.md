@@ -122,14 +122,9 @@ docker run -it -v $(pwd):/tmp mongo:5.0 mongoimport --drop --collection=COLLECTI
 
 Ce docker crée un utilisateur **root** à partir du fichier **.env** fourni.
 
-# Sample data
-
-https://github.com/neelabalan/mongodb-sample-dataset
-
 ## Activation de mongo en mode auth
 
 Modification du docker-compose.yml en ajoutant:
-
 ```
 services:
    mongo:

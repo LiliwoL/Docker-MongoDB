@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+if [ -z "$1" ]; then
+
+    # Lecture du fichier .env
+    if [ -f .env ]; then
+      set -a
+      . .env
+      set +a
+    fi
+
+    figlet Mongo Import
+
+    # Import de données csv dans une base de données que l'on va créer train
+    # mongoimport --db ny --collection restaurants --file primer-dataset.json --drop
+    docker exec -it mongo mongoimport --host 127.0.0.1 -u $ROOT_USERNAME -p $ROOT_PASSWORD --db $DATABASE_NAME --authenticationDatabase admin --collection $COLLECTION_NAME --file /root/$IMPORT_FILENAME --drop
+fi

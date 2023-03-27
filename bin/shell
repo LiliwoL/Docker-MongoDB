@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-if [ -z "$1" ]
-  then
+if [ -z "$1" ]; then
 
     # Lecture du fichier .env
     if [ -f .env ]; then
@@ -9,7 +8,18 @@ if [ -z "$1" ]
       set +a
     fi
 
+    figlet MongoSH
+    echo "Ouverture du terminal mongosh"
+    echo "Pour quitter: quit()"
+    echo "------------------------------"
+    echo ""
+
     docker exec -it mongo mongosh --host 127.0.0.1 -u $ROOT_USERNAME -p $ROOT_PASSWORD
 else
+    figlet Shell du container Mongo
+    echo "Ouverture du shell du container Mongo"
+    echo "Pour quitter: exit"
+    echo "------------------------------"
+    echo ""
     docker exec -it $@ /bin/sh
 fi
