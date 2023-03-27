@@ -93,7 +93,7 @@ Pour le shell du conteneur *mongo-express*
 bin/shell mongo-express
 ```
 
-## Afficher les logs des conteneurs
+## Afficher les logs des conteneursuse admin
 
 ```bash
 bin/log
@@ -120,25 +120,7 @@ docker run -it -v $(pwd):/tmp mongo:5.0 mongoimport --drop --collection=COLLECTI
 
 # Mongo en mode AUTH
 
-## D'abord une connexion sans auth
-
-```
-docker exec -it mongodb bash
-mongo
-```
-
-## Création d'un utilisateur root
-
-```
-use admin
-db.createUser(
-  {
-     user: "root",
-     pwd: "root",
-     roles:["root"]
-  }
-);
-```
+Ce docker crée un utilisateur **root** à partir du fichier **.env** fourni.
 
 # Sample data
 
