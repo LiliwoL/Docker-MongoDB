@@ -1,30 +1,68 @@
-# Sommaire
-
-[toc]
-
-v 0.1
-
 # Docker Mongo et Mongo Express
 
 Installe une stack mongo et mongo express
 
+# Sommaire
+
+<!-- TOC -->
+* [Docker Mongo et Mongo Express](#docker-mongo-et-mongo-express)
+* [Sommaire](#sommaire)
+* [Présentation](#prsentation)
+* [Accès](#accs)
+  * [Mongo](#mongo)
+  * [Mongo Express](#mongo-express)
+* [Commandes](#commandes)
+  * [Lancement des containers](#lancement-des-containers)
+  * [Arrêt des containers](#arrt-des-containers)
+  * [Accéder au shell Mongo](#accder-au-shell-mongo)
+  * [Afficher les logs du container](#afficher-les-logs-du-container)
+  * [Export mongo](#export-mongo)
+  * [Import Mongo](#import-mongo)
+* [Mongo en mode AUTH](#mongo-en-mode-auth)
+  * [D'abord une connexion sans auth](#dabord-une-connexion-sans-auth)
+  * [Création d'un utilisateur root](#cration-dun-utilisateur-root)
+* [Sample data](#sample-data)
+  * [Activation de mongo en mode auth](#activation-de-mongo-en-mode-auth)
+<!-- TOC -->
+
+v 0.1
+
+# Présentation
+
+> Mongo
+Serveur mongo
+
 > Mongo express
 https://github.com/mongo-express/mongo-express
 
-## Accès à mongo
-localhost:27017
+# Configuration
 
-## Accès à Mongo Express
-http://localhost:8081
+- Clonez le dépôt
+- Renommez le fichier **.env.sample** en **.env**.
+- Configurez les identifiants de l'utilisateur root sur mongo.
+- Lancez la commande `bin/start` pour lancer les conteneurs
 
-Source:
-https://www.mongodb.com/compatibility/docker
+***
+
+# Accès
+
+## Mongo
+
+URL pour accéder au serveur mongo:
+`localhost:27017`
+
+## Mongo Express
+
+URL pour accéder à l'interface **Mongo Express**
+`http://localhost:8081`
+
+***
 
 # Commandes
 
-## Lancement des containers
+## Lancement des conteneur
 
-Lancement du docker compose en prenant en compte le fichier .env
+Lancement du **docker-compose** en prenant en compte le fichier .**env**
 
 ```bash
 bin/start
@@ -36,10 +74,9 @@ Démarrage de tous les containers
  ⠿ Container mongo-express      Started                                                                                                   1.9s
 ```
 
-## Arrêt des containers
+## Arrêt des conteneurs
 
-Lancement du docker compose en prenant en compte le fichier .env
-
+Arrête tous les conteneurs.
 ```bash
 bin/stop
 ```
@@ -50,19 +87,19 @@ bin/stop
 bin/shell
 ```
 
-Pour le shell du container *mongo-express*
+Pour le shell du conteneur *mongo-express*
 
 ```bash
 bin/shell mongo-express
 ```
 
-## Afficher les logs du container
+## Afficher les logs des conteneurs
 
 ```bash
 bin/log
 ```
 
-Pour les logs du container *mongo-express*
+Pour les logs du conteneur *mongo-express*
 
 ```bash
 bin/log mongo-express
