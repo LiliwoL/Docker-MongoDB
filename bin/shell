@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+
+# Si aucun argument n'est fourni
 if [ -z "$1" ]; then
 
     # Lecture du fichier .env

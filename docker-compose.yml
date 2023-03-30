@@ -11,7 +11,8 @@ services:
     volumes:
       # Répertoire hôte: mongodata => Répertoire Container: /data/db
       - ./mongodata:/data/db
-      - ./sample_datas:/root/sample_datas
+      - ./sample_datas:/root/sample_datas   # Répertoire pour récupérer dans le conteneur les jeux de données à importer
+      - ./output_datas:/root/output_datas    # Répertoire pour sauvegarder les données via mongodump
     ports:
       # Partage du port 27017
       - 27017:27017

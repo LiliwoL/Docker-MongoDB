@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+if [ -z "$1" ]; then
+
+    # Lecture du fichier .env
+    if [ -f .env ]; then
+      set -a
+      . .env
+      set +a
+    fi
+
+    figlet Mongo Dump
+
+    echo "Rappel des variables d'environnement"
+    echo "DATABASE_NAME --> $DATABASE_NAME"
+    echo "COLLECTION_NAME --> $COLLECTION_NAME"
+    echo "La collection sera exportée dans le volume output_datas"
+
+    echo ""
+
+    echo "Commande exécutée:"
+    echo "mongodump --uri $MONGO_DSN --authenticationDatabase admin --collection $COLLECTION_NAME --out /root/output_datas"
+
+    echo ""
+
+
+    # Export
+    # https://www.mongodb.com/docs/database-tools/mongodump/
+    # mongoimport --db ny --collection restaurants --file primer-dataset.json --drop
+    docker exec -it mongo mongodump --uri $MONGO_DSN --authenticationDatabase admin --collection $COLLECTION_NAME --out /root/output_datas
+fi

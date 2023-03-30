@@ -1,5 +1,8 @@
-# Dossier de la base
+# Dossier des données de la base
 mongodata/
+
+# Dossier utilisé lors des dump
+output_datas/
 
 # Fichier de configuration
 .env

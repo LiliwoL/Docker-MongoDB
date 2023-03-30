@@ -81,19 +81,21 @@ Arrête tous les conteneurs.
 bin/stop
 ```
 
-## Accéder au shell Mongo
+## Accéder au shell
+
+Par défaut, la commande lance le terminal **mongosh** connecté à partir des variables d'environnement.
 
 ```bash
 bin/shell
 ```
 
-Pour le shell du conteneur *mongo-express*
+Pour le shell du conteneur *mongo*
 
 ```bash
-bin/shell mongo-express
+bin/shell mongo
 ```
 
-## Afficher les logs des conteneursuse admin
+## Afficher les logs des conteneur
 
 ```bash
 bin/log
@@ -113,11 +115,28 @@ docker run -it -v $(pwd):/tmp mongo:5.0 mongoexport --collection=COLLECTION --ou
 
 ## Import Mongo
 
-```bash
-docker run -it -v $(pwd):/tmp mongo:5.0 mongoimport --drop --collection=COLLECTION "mongodb+srv://user:password@clusterURL/database" /tmp/COLLECTION.json
-```
+Pour importer des données dans Mongo, on utilise l'utilitaire **mongoimport**.
 
+```bash
+# Import de données csv dans une base de données que l'on va créer train
+mongoimport --db ny --collection restaurants --file primer-dataset.json --drop
+```
+--db pour donner un nom à votre base de données.
+--collection indique le nom de votre collection
+--file indique le nom du fichier à intégrer dans la base de données
+--drop supprimera au préalable les collections existantes
+
+Dans ce conteneur, un script est proposé.
+
+Utilisez le script **bin/import** qui lit les variables d'environnement suivantes:
+- DATABASE_NAME
+- COLLECTION_NAME
+- IMPORT_FILENAME
+```bash
+bin/import
+```
 
 # Mongo en mode AUTH
 
 Ce docker crée un utilisateur **root** à partir du fichier **.env** fourni.
+Il est automatiquement lancé en mode AUTH.
