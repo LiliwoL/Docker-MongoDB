@@ -109,6 +109,13 @@ bin/log mongo-express
 
 ## Export mongo
 
+On peut utiliser l'utilitaire **mongodump**, ou le script proposé:
+```bash
+bin/export
+```
+
+Les données seront exportées dans le dossier **output_datas**
+
 ```bash
 docker run -it -v $(pwd):/tmp mongo:5.0 mongoexport --collection=COLLECTION --out=/tmp/COLLECTION.json "mongo+srv://username:password@clusterURL/database"
 ```
