@@ -8,3 +8,6 @@ output_datas/
 .env
 .DS_Store
 .idea
+
+# Dossier contenant des dépendances
+node_modules/

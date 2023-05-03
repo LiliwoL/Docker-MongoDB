@@ -13,6 +13,7 @@ if [ -z "$1" ]; then
     echo "Rappel des variables d'environnement"
     echo "DATABASE_NAME --> $DATABASE_NAME"
     echo "COLLECTION_NAME --> $COLLECTION_NAME"
+    echo "MONGO_DSN --> $MONGO_DSN"
     echo "La collection sera exportée dans le volume output_datas"
 
     echo ""

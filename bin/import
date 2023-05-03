@@ -14,6 +14,7 @@ if [ -z "$1" ]; then
     echo "DATABASE_NAME --> $DATABASE_NAME"
     echo "COLLECTION_NAME --> $COLLECTION_NAME"
     echo "IMPORT_FILENAME --> $IMPORT_FILENAME"
+    echo "MONGO_DSN --> $MONGO_DSN"
     echo "La collection sera vidée avant import (DROP)"
 
     echo ""
