@@ -56,6 +56,8 @@ URL pour accéder au serveur mongo:
 URL pour accéder à l'interface **Mongo Express**
 `http://localhost:8081`
 
+L: admin
+P: pass
 ***
 
 # Commandes

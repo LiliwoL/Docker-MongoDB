@@ -54,7 +54,7 @@ services:
     volumes:
       # Liaison entre le dossier local et le dossier qui contiendra l'application node sur le container
       - ./node_app:/app
-      #- node_modules:/app/node_modules
+      - ./node_modules:/app/node_modules
     working_dir: /app # Dossier de base dans lequel se placera ce container
     #command: npm install -- npm run start
 
