@@ -5,8 +5,12 @@ services:
   # Serveur Mongo
   # ========================================
   mongo:
-    #image: mongo:latest
-    image: mongo:4.4 # Version sans AVX
+    # Sur une VM avec AVX
+    image: mongo:latest
+
+    # Sur une VM sans AVX, utilisation de Mongo 4
+    #image: mongo:4.4 # Version sans AVX
+    
     container_name: mongo
     environment:
       - MONGO_INITDB_ROOT_USERNAME=${ROOT_USERNAME}

@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Nettoyage de l'écran
+clear
+
 # Si aucun argument n'est fourni
 if [ -z "$1" ]; then
 
@@ -16,7 +19,11 @@ if [ -z "$1" ]; then
     echo "------------------------------"
     echo ""
 
-    docker exec -it mongo mongo --host 127.0.0.1 -u $ROOT_USERNAME -p $ROOT_PASSWORD
+    # En fonction de la version de Mongo
+    # Mongo 4.4 (sans AVX)
+    #docker exec -it mongo mongo --host 127.0.0.1 -u $ROOT_USERNAME -p $ROOT_PASSWORD
+    # Mongo 5 (avec AVX)
+    docker exec -it mongo mongosh --host 127.0.0.1 -u $ROOT_USERNAME -p $ROOT_PASSWORD
 else
     figlet Shell du container Mongo
     echo "Ouverture du shell du container Mongo"

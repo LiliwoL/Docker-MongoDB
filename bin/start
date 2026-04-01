@@ -1,9 +1,36 @@
 #!/usr/bin/env bash
+
+# Nettoyage de l'écran
+clear
+
+# Lecture du fichier .env
+if [ -f .env ]; then
+  set -a
+  . .env
+  set +a
+
+  # Echo with figlet if exists
+  if type "figlet" > /dev/null; then
+    figlet $COMPOSE_PROJECT_NAME
+  else
+    echo "Docker $COMPOSE_PROJECT_NAME"
+  fi
+
+  echo "------------------------------"
+  echo ""
+fi
+
+
 if [ -z "$1" ]
   then
-		figlet "Demarrage de tous les containers"
-		docker compose --env-file .env up -d
+    echo "Démarrage de tous les containers"
+    echo "------------------------------"
+    echo "------------------------------"
+		# Commande de lancement (avec lecture du fichier .env)
+    docker-compose --env-file .env up -d
 else
-	figlet "Demarrage du container $@"
-  docker compose --env-file .env up $@ -d
+	echo "Démarrage du container $@"
+  echo "------------------------------"
+  echo "------------------------------"
+  docker-compose --env-file .env up $@ -d
 fi
