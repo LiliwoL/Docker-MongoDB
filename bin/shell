@@ -16,7 +16,7 @@ if [ -z "$1" ]; then
     echo "------------------------------"
     echo ""
 
-    docker exec -it mongo mongosh --host 127.0.0.1 -u $ROOT_USERNAME -p $ROOT_PASSWORD
+    docker exec -it mongo mongo --host 127.0.0.1 -u $ROOT_USERNAME -p $ROOT_PASSWORD
 else
     figlet Shell du container Mongo
     echo "Ouverture du shell du container Mongo"

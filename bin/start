@@ -2,8 +2,8 @@
 if [ -z "$1" ]
   then
 		figlet "Demarrage de tous les containers"
-		docker-compose --env-file .env up -d
+		docker compose --env-file .env up -d
 else
 	figlet "Demarrage du container $@"
-  docker-compose --env-file .env up $@ -d
+  docker compose --env-file .env up $@ -d
 fi
